@@ -68,5 +68,20 @@ RSpec.describe("Game of Life") do
       expect(game.grid.getCell(2, 1).x).to eq(2)
       expect(game.grid.getCell(2, 1).y).to eq(1)
     end
+
+    it("can be interated over game rounds") do
+      grid = Grid.new
+      game = Game.new(grid)
+
+      expect(game.round).to eq(0)
+
+      game.nextRound
+
+      expect(game.round).to eq(1)
+
+      game.nextRound
+
+      expect(game.round).to eq(2)
+    end
   end
 end
