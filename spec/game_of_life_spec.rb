@@ -51,11 +51,29 @@ RSpec.describe("Game of Life") do
   describe(Grid) do
     it("can add and get a cell with x-y coordinates") do
       grid = Grid.new
-      cell = Cell.new(nil, 2, 1)
-      grid.add(cell)
+      grid.add(Cell.new(nil, 2, 1))
 
       expect(grid.getCell(2, 1).x).to eq(2)
       expect(grid.getCell(2, 1).y).to eq(1)
+    end
+
+    it("can add and get multiple cells") do
+      grid = Grid.new
+      grid.add(Cell.new(nil, 0, 0))
+      grid.add(Cell.new(nil, 0, 1))
+      grid.add(Cell.new(nil, 1, 0))
+      grid.add(Cell.new(nil, 1, 1))
+
+      expect(grid.getCell(0, 0).x).to eq(0)
+      expect(grid.getCell(0, 0).y).to eq(0)
+      expect(grid.getCell(0, 1).x).to eq(0)
+      expect(grid.getCell(0, 1).y).to eq(1)
+      expect(grid.getCell(1, 0).x).to eq(1)
+      expect(grid.getCell(1, 0).y).to eq(0)
+      expect(grid.getCell(1, 1).x).to eq(1)
+      expect(grid.getCell(1, 1).y).to eq(1)
+      expect(grid.getCell(2, 2)).to be(nil)
+      expect(grid.getCell(2, 2)).to be(nil)
     end
   end
 
@@ -69,7 +87,7 @@ RSpec.describe("Game of Life") do
       expect(game.grid.getCell(2, 1).y).to eq(1)
     end
 
-    it("can be interated over game rounds") do
+    xit("can be interated over game rounds") do
       grid = Grid.new
       game = Game.new(grid)
 
@@ -84,7 +102,7 @@ RSpec.describe("Game of Life") do
       expect(game.round).to eq(2)
     end
 
-    it("kills off a cell with 0 living neighbors") do
+    xit("kills off a cell with 0 living neighbors") do
       grid = Grid.new
       game = Game.new(grid)
       cell = Cell.new(grid, 1, 1)
