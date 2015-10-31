@@ -51,21 +51,28 @@ RSpec.describe("Game of Life") do
   describe(Grid) do
     it("can add and get a cell with x-y coordinates") do
       grid = Grid.new
-      grid.add(Cell.new(nil, 2, 1))
+      cell = Cell.new(nil, 2, 1)
+      grid.add(cell)
 
       expect(grid.cells.count).to eq(1)
+      expect(grid.cells).to include(cell)
       expect(grid.getCell(2, 1).x).to eq(2)
       expect(grid.getCell(2, 1).y).to eq(1)
     end
 
     it("can add and get multiple cells") do
       grid = Grid.new
-      grid.add(Cell.new(nil, 0, 0))
-      grid.add(Cell.new(nil, 0, 1))
-      grid.add(Cell.new(nil, 1, 0))
-      grid.add(Cell.new(nil, 1, 1))
+      cell_1 = Cell.new(nil, 0, 0)
+      cell_2 = Cell.new(nil, 0, 1)
+      cell_3 = Cell.new(nil, 1, 0)
+      cell_4 = Cell.new(nil, 1, 1)
+      grid.add(cell_1)
+      grid.add(cell_2)
+      grid.add(cell_3)
+      grid.add(cell_4)
 
       expect(grid.cells.count).to eq(4)
+      expect(grid.cells).to include(cell_1, cell_2, cell_3, cell_4)
       expect(grid.getCell(0, 0).x).to eq(0)
       expect(grid.getCell(0, 0).y).to eq(0)
       expect(grid.getCell(0, 1).x).to eq(0)
