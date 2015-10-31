@@ -57,4 +57,15 @@ RSpec.describe("Game of Life") do
       expect(grid.getCell(2, 1).y).to eq(1)
     end
   end
+
+  describe(Game) do
+    it("can add a grid with a cell") do
+      grid = Grid.new
+      game = Game.new(grid)
+      Cell.new(grid, 2, 1)
+
+      expect(game.grid.getCell(2, 1).x).to eq(2)
+      expect(game.grid.getCell(2, 1).y).to eq(1)
+    end
+  end
 end
