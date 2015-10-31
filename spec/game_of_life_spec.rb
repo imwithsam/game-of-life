@@ -21,5 +21,12 @@ RSpec.describe("Game of Life") do
       expect(cell.x).to be(1)
       expect(cell.y).to be(2)
     end
+
+    it("defaults to x-y coordinates of (0, 0)") do
+      cell = Cell.new
+
+      expect(cell.x).to be(0)
+      expect(cell.y).to be(0)
+    end
   end
 end
