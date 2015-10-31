@@ -53,6 +53,7 @@ RSpec.describe("Game of Life") do
       grid = Grid.new
       grid.add(Cell.new(nil, 2, 1))
 
+      expect(grid.cells.count).to eq(1)
       expect(grid.getCell(2, 1).x).to eq(2)
       expect(grid.getCell(2, 1).y).to eq(1)
     end
@@ -64,6 +65,7 @@ RSpec.describe("Game of Life") do
       grid.add(Cell.new(nil, 1, 0))
       grid.add(Cell.new(nil, 1, 1))
 
+      expect(grid.cells.count).to eq(4)
       expect(grid.getCell(0, 0).x).to eq(0)
       expect(grid.getCell(0, 0).y).to eq(0)
       expect(grid.getCell(0, 1).x).to eq(0)
