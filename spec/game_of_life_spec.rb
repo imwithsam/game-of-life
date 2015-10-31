@@ -96,7 +96,7 @@ RSpec.describe("Game of Life") do
       expect(game.grid.getCell(2, 1).y).to eq(1)
     end
 
-    xit("can be interated over game rounds") do
+    it("can be interated over game rounds") do
       grid = Grid.new
       game = Game.new(grid)
 
@@ -111,7 +111,7 @@ RSpec.describe("Game of Life") do
       expect(game.round).to eq(2)
     end
 
-    xit("kills off a cell with 0 living neighbors") do
+    it("kills off a cell with 0 living neighbors") do
       grid = Grid.new
       game = Game.new(grid)
       cell = Cell.new(grid, 1, 1)
