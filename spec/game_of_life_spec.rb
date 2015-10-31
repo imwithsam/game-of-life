@@ -42,8 +42,8 @@ RSpec.describe("Game of Life") do
       Cell.new(grid, 1, 2)
       Cell.new(grid, 2, 2).die
 
-      expect(cell.neighbors.alive).to eq(5)
-      expect(cell.neighbors.dead).to eq(3)
+      expect(cell.livingNeighbors.count).to eq(5)
+      expect(cell.deadNeighbors.count).to eq(3)
     end
   end
 
@@ -70,8 +70,8 @@ RSpec.describe("Game of Life") do
       grid.add(Cell.new(1, 2))
       grid.add(Cell.new(2, 2).die)
 
-      expect(cell.neighbors.alive).to eq(5)
-      expect(cell.neighbors.dead).to eq(3)
+      expect(cell.livingNeighbors.count).to eq(5)
+      expect(cell.deadNeighbors.count).to eq(3)
     end
   end
 end
