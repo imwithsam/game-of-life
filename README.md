@@ -1,3 +1,5 @@
+# Conway's Game of Life
+
 This is my first ever attempt at TDDing Conway's Game of Life. I have never
 tried creating it before.
 
@@ -20,4 +22,4 @@ On this initial attempt, I am using RSpec and Ruby.
     gem ](https://github.com/shoes/shoes4)
   - [ ] create front-end implementation using HTML5 Canvas
   - [ ] create front-end implementation using React
-- [ ] create front-end implementation using Elm
+  - [ ] create front-end implementation using Elm
