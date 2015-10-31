@@ -45,10 +45,10 @@ class Cell
   end
 
   def livingNeighbors
-    neighbors.select { |neighbor| neighbor.alive? }
+    neighbors.select { |neighbor| neighbor && neighbor.alive? }
   end
 
   def deadNeighbors
-    neighbors.select { |neighbor| !neighbor.alive? }
+    neighbors.select { |neighbor| !neighbor || !neighbor.alive? }
   end
 end
