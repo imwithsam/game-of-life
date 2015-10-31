@@ -1,6 +1,8 @@
 require './lib/cell'
 
 class Grid
+  attr_reader :cells
+
   def initialize
     @cells = []
   end
