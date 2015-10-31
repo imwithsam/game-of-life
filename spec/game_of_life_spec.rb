@@ -1,4 +1,5 @@
 require './lib/cell'
+require './lib/grid'
 
 RSpec.describe("Game of Life") do
   describe(Cell) do
