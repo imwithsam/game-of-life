@@ -7,5 +7,12 @@ RSpec.describe("Game of Life") do
 
       expect(cell.alive?)
     end
+
+    it("can die") do
+      cell = Cell.new
+      cell.die
+
+      expect(cell.alive?).to be false
+    end
   end
 end
