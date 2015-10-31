@@ -83,5 +83,15 @@ RSpec.describe("Game of Life") do
 
       expect(game.round).to eq(2)
     end
+
+    it("kills off a cell with 0 living neighbors") do
+      grid = Grid.new
+      game = Game.new(grid)
+      cell = Cell.new(grid, 1, 1)
+
+      game.nextRound
+
+      expect(cell.alive?).to be(false)
+    end
   end
 end
