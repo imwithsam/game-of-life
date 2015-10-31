@@ -43,4 +43,12 @@ class Cell
 
     neighbors
   end
+
+  def livingNeighbors
+    neighbors.select { |neighbor| neighbor.alive? }
+  end
+
+  def deadNeighbors
+    neighbors.select { |neighbor| !neighbor.alive? }
+  end
 end

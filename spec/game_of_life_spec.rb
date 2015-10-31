@@ -56,22 +56,5 @@ RSpec.describe("Game of Life") do
       expect(grid.getCell(2, 1).x).to eq(2)
       expect(grid.getCell(2, 1).y).to eq(1)
     end
-
-    xit("knows how many of a given cell's neighbors are alive or dead") do
-      grid = Grid.new
-      cell = Cell.new(1, 1)
-      grid.add(cell)
-      grid.add(Cell.new(0, 0))
-      grid.add(Cell.new(1, 0).die)
-      grid.add(Cell.new(2, 0))
-      grid.add(Cell.new(0, 1))
-      grid.add(Cell.new(2, 1))
-      grid.add(Cell.new(0, 2).die)
-      grid.add(Cell.new(1, 2))
-      grid.add(Cell.new(2, 2).die)
-
-      expect(cell.livingNeighbors.count).to eq(5)
-      expect(cell.deadNeighbors.count).to eq(3)
-    end
   end
 end
