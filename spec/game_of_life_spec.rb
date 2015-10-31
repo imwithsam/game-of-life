@@ -17,7 +17,7 @@ RSpec.describe("Game of Life") do
     end
 
     it("knows its x-y coordinates in the universe") do
-      cell = Cell.new(1, 2)
+      cell = Cell.new(nil, 1, 2)
 
       expect(cell.x).to eq(1)
       expect(cell.y).to eq(2)
@@ -30,16 +30,17 @@ RSpec.describe("Game of Life") do
       expect(cell.y).to eq(0)
     end
 
-    xit("knows how many of its neighbors are alive or dead") do
-      cell = Cell.new(1, 1)
-      Cell.new(0, 0)
-      Cell.new(1, 0).die
-      Cell.new(2, 0)
-      Cell.new(0, 1)
-      Cell.new(2, 1)
-      Cell.new(0, 2).die
-      Cell.new(1, 2)
-      Cell.new(2, 2).die
+    it("knows how many of its neighbors are alive or dead") do
+      grid = Grid.new
+      cell = Cell.new(grid, 1, 1)
+      Cell.new(grid, 0, 0)
+      Cell.new(grid, 1, 0).die
+      Cell.new(grid, 2, 0)
+      Cell.new(grid, 0, 1)
+      Cell.new(grid, 2, 1)
+      Cell.new(grid, 0, 2).die
+      Cell.new(grid, 1, 2)
+      Cell.new(grid, 2, 2).die
 
       expect(cell.neighbors.alive).to eq(5)
       expect(cell.neighbors.dead).to eq(3)
@@ -49,11 +50,28 @@ RSpec.describe("Game of Life") do
   describe(Grid) do
     it("can add and get a cell with x-y coordinates") do
       grid = Grid.new
-      cell = Cell.new(2, 1)
+      cell = Cell.new(nil, 2, 1)
       grid.add(cell)
 
       expect(grid.getCell(2, 1).x).to eq(2)
       expect(grid.getCell(2, 1).y).to eq(1)
+    end
+
+    xit("knows how many of a given cell's neighbors are alive or dead") do
+      grid = Grid.new
+      cell = Cell.new(1, 1)
+      grid.add(cell)
+      grid.add(Cell.new(0, 0))
+      grid.add(Cell.new(1, 0).die)
+      grid.add(Cell.new(2, 0))
+      grid.add(Cell.new(0, 1))
+      grid.add(Cell.new(2, 1))
+      grid.add(Cell.new(0, 2).die)
+      grid.add(Cell.new(1, 2))
+      grid.add(Cell.new(2, 2).die)
+
+      expect(cell.neighbors.alive).to eq(5)
+      expect(cell.neighbors.dead).to eq(3)
     end
   end
 end
