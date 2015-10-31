@@ -1,11 +1,15 @@
 require './lib/cell'
 
 class Grid
-  def add(cell)
+  def initialize
+    @cells = []
+  end
 
+  def add(cell)
+    @cells << cell
   end
 
   def getCell(x, y)
-    Cell.new
+    @cells.detect { |cell| cell.x == x && cell.y == y }
   end
 end
