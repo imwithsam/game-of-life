@@ -15,16 +15,16 @@ class Cell
     @alive = false
   end
 
-  def neighbors
+  def neighbors(grid)
     neighbors = []
-    cell_nw = Cell.get(x - 1, y - 1)
-    cell_n  = Cell.get(x, y - 1)
-    cell_ne = Cell.get(x + 1, y - 1)
-    cell_w  = Cell.get(x - 1, y)
-    cell_e  = Cell.get(x + 1, y)
-    cell_sw = Cell.get(x - 1, y + 1)
-    cell_s  = Cell.get(x, y + 1)
-    cell_se = Cell.get(x + 1, y + 1)
+    cell_nw = grid.getCell(x - 1, y - 1)
+    cell_n  = grid.getCell(x, y - 1)
+    cell_ne = grid.getCell(x + 1, y - 1)
+    cell_w  = grid.getCell(x - 1, y)
+    cell_e  = grid.getCell(x + 1, y)
+    cell_sw = grid.getCell(x - 1, y + 1)
+    cell_s  = grid.getCell(x, y + 1)
+    cell_se = grid.getCell(x + 1, y + 1)
 
     neighbors << cell_nw
     neighbors << cell_n
