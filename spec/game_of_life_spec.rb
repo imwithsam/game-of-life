@@ -156,5 +156,41 @@ RSpec.describe("Game of Life") do
 
       expect(cell.alive?).to be(false)
     end
+
+    it("does not kill off a cell with 2 living neighbors") do
+      grid = Grid.new
+      game = Game.new(grid)
+      cell = Cell.new(grid, 1, 1)
+      Cell.new(grid, 0, 0).die
+      Cell.new(grid, 1, 0).die
+      Cell.new(grid, 2, 0).die
+      Cell.new(grid, 0, 1).die
+      Cell.new(grid, 2, 1).die
+      Cell.new(grid, 0, 2).die
+      Cell.new(grid, 1, 2)
+      Cell.new(grid, 2, 2)
+
+      game.nextRound
+
+      expect(cell.alive?)
+    end
+
+    it("does not kill off a cell with 3 living neighbors") do
+      grid = Grid.new
+      game = Game.new(grid)
+      cell = Cell.new(grid, 1, 1)
+      Cell.new(grid, 0, 0).die
+      Cell.new(grid, 1, 0).die
+      Cell.new(grid, 2, 0).die
+      Cell.new(grid, 0, 1).die
+      Cell.new(grid, 2, 1).die
+      Cell.new(grid, 0, 2)
+      Cell.new(grid, 1, 2)
+      Cell.new(grid, 2, 2)
+
+      game.nextRound
+
+      expect(cell.alive?)
+    end
   end
 end
