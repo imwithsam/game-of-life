@@ -12,6 +12,8 @@ class Game
     @round = round + 1
   end
 
+  private
+
   def checkCells
     @grid.cells.each do |cell|
       cell.die if cell.livingNeighbors.count < 2 ||
