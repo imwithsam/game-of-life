@@ -21,6 +21,12 @@ class Cell
     self
   end
 
+  def revive
+    @alive = true
+
+    self
+  end
+
   def neighbors
     neighbors = []
     cell_nw = @grid.getCell(x - 1, y - 1)
