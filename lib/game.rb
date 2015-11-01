@@ -8,7 +8,8 @@ class Game
 
   def nextRound
     @grid.cells.each do |cell|
-      cell.die if cell.livingNeighbors.count < 2
+      cell.die if cell.livingNeighbors.count < 2 ||
+                  cell.livingNeighbors.count > 3
     end
 
     @round = round + 1
