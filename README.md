@@ -10,6 +10,10 @@ himself](https://www.youtube.com/watch?v=E8kUJL04ELA) describing the game.
 
 On this initial attempt, I am using RSpec and Ruby.
 
+*NOTE: I created and merged branches for each iteration, but lost much of my
+earlier merge history. This was due to my having to do an interactive rebase to
+fix a typo in one of my earlier commit messages.*
+
 ## To Do
 
 - [ ] create back-end implementation
