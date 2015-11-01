@@ -264,5 +264,23 @@ RSpec.describe("Game of Life") do
 
       expect(cell.alive?).to be(false)
     end
+
+    it("kills off a cell with 8 living neighbors") do
+      grid = Grid.new
+      game = Game.new(grid)
+      cell = Cell.new(grid, 1, 1)
+      Cell.new(grid, 0, 0)
+      Cell.new(grid, 1, 0)
+      Cell.new(grid, 2, 0)
+      Cell.new(grid, 0, 1)
+      Cell.new(grid, 2, 1)
+      Cell.new(grid, 0, 2)
+      Cell.new(grid, 1, 2)
+      Cell.new(grid, 2, 2)
+
+      game.nextRound
+
+      expect(cell.alive?).to be(false)
+    end
   end
 end
