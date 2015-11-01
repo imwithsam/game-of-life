@@ -7,15 +7,16 @@ class Game
   end
 
   def nextRound
-    killCells
+    checkCells
 
     @round = round + 1
   end
 
-  def killCells
+  def checkCells
     @grid.cells.each do |cell|
       cell.die if cell.livingNeighbors.count < 2 ||
                   cell.livingNeighbors.count > 3
+      cell.revive if cell.livingNeighbors.count == 3
     end
   end
 end
