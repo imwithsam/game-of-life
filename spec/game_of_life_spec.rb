@@ -7,7 +7,7 @@ RSpec.describe("Game of Life") do
     it("is living when created") do
       cell = Cell.new
 
-      expect(cell.alive?)
+      expect(cell.alive?).to be(true)
     end
 
     it("can die") do
@@ -172,7 +172,7 @@ RSpec.describe("Game of Life") do
 
       game.nextRound
 
-      expect(cell.alive?)
+      expect(cell.alive?).to be(true)
     end
 
     it("does not kill off a cell with 3 living neighbors") do
@@ -190,7 +190,7 @@ RSpec.describe("Game of Life") do
 
       game.nextRound
 
-      expect(cell.alive?)
+      expect(cell.alive?).to be(true)
     end
 
     it("kills off a cell with 4 living neighbors") do
